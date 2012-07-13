@@ -10,6 +10,6 @@ fibs' :: Integer -> Integer -> [Integer]
 fibs' n n' = n:rest
        where rest = fibs' n' (n + n')
 
-sum_of_even_below n = sum $ filter (\x -> mod x 2 == 0) $ takeWhile (<n) fibs
+sum_of_even_below n = sum $ filter (\x -> mod x 2 == 0) $ takeWhile (<n) fibs
 
 answer = sum_of_even_below 4000000

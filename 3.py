@@ -18,6 +18,3 @@ def factor(num):
 
 a = 600851475143L
 print "The factors of %d are %s"  % (a ,", ".join([str(x) for x in factor(a)]))
-
-a = 2048
-print "The factors of %d are %s"  % (a ,", ".join([str(x) for x in factor(a)]))
