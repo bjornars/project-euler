@@ -1,6 +1,5 @@
-convert :: String -> Int
-convert = read
-triangle = map (map convert . words) 
+import functools
+triangle = map(lambda x: map(int, x.split()),
             [" 75                                          "
             , "95 64                                       "
             , "17 47 82                                    "
@@ -16,13 +15,16 @@ triangle = map (map convert . words)
             , "91 71 52 38 17 14 91 43 58 50 27 29 48      "
             , "63 66 04 68 89 53 67 30 73 16 69 87 40 31   "
             , "04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"
-            ]
+            ])
 
-gen t = gen' 0 t
+triangle.reverse()
 
-gen' :: (Num a) => a -> [[a]] -> [a]
-gen' sum' (t:[])     = [sum' + head t]
-gen' sum' (t:ts) = (gen' (sum' + head t) $ map init ts) ++ 
-                   (gen' (sum' + head t) $ map tail ts) 
+while 1:
+    for i in range(len(triangle[1])):
+        triangle[1][i] += max(triangle[0][i], triangle[0][i+1])
 
-answer = maximum $ gen triangle            
+    if len(triangle[1]) == 1:
+        print triangle[1][0]
+        break
+
+    del triangle[0]
