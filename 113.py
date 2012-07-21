@@ -62,4 +62,4 @@ import time
 then = time.time()
 b = non_bouncy(100)
 now = time.time()
-print "%8d - %.3f seconds" % (b, now - then)
+print "%8d - %.2f mseconds" % (b, (now - then) * 1000)
