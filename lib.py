@@ -44,3 +44,12 @@ def get_primes(limit):
         for x in range(sieve+sieve, limit, sieve):
             numbers[x] = False
 
+def gcd(a, b):
+    if a > b:
+        a, b = b, a
+    while b != 0:
+        a, b = b, a % b 
+    return a
+
+def lcd(a, b):
+    return a * b / gcd(a, b)
