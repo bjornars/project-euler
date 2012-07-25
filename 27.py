@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
     max_coef = None
     max_num = -1
-    for a, b in itertools.product(range(-999, 1000), range(-999, 1000)):
+    for a, b in itertools.product(range(-999, 1000, 2), lib.get_primes(1000)):
         n = num_euler(a,b)
         if n > max_num:
             max_num = n
