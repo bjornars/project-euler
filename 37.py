@@ -3,6 +3,10 @@ primes = lib.get_primes(1000000)
 primes = set(map(str, primes))
 
 def is_trunc(c):
+    c2 = c[1:]
+    for each in "2", "4", "6", "8", "0":
+        if each in c2:
+            return False
     x = c
     while x:
         if not x in primes:
