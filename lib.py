@@ -148,3 +148,24 @@ def permute(seq, pred=cmp):
             if next == first:
                 raise StopIteration
     raise StopIteration
+
+def is_square(n):
+    sq = int(math.sqrt(n))
+    return sq * sq == n
+
+_primes = [2]
+
+@memoize
+def factors(n, first):
+    global _primes
+    if _primes[-1] < n:
+        _primes = list(get_primes(n*2))
+
+    factors = []
+    for p in _primes:
+        while n % p == 0:
+            factors.append(p)
+            n /= p
+        if n == 1:
+            break
+    return factors
