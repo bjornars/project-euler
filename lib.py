@@ -153,16 +153,16 @@ def is_square(n):
     sq = int(math.sqrt(n))
     return sq * sq == n
 
-_primes = [2]
+_fprimes = [2]
 
 @memoize
 def factors(n, first):
-    global _primes
-    if _primes[-1] < n:
-        _primes = list(get_primes(n*2))
+    global _fprimes
+    if _fprimes[-1] < n:
+        _fprimes = list(get_primes(n*2))
 
     factors = []
-    for p in _primes:
+    for p in _fprimes:
         while n % p == 0:
             factors.append(p)
             n /= p
