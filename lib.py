@@ -169,3 +169,11 @@ def factors(n, first):
         if n == 1:
             break
     return factors
+
+def zipWith(f, a, b):
+    return map(f, zip(a,b))
+
+def compose(f, g):
+    def fg(*a, **kw):
+        return f(g(*a, **kw))
+    return fg
