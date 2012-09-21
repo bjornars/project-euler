@@ -106,7 +106,7 @@ def permute(seq, pred=cmp):
                 return
             start += 1
             end -= 1
-    
+
     if not seq:
         raise StopIteration
 
@@ -122,7 +122,7 @@ def permute(seq, pred=cmp):
     # Yield input sequence as the STL version is often
     # used inside do {} while.
     yield seq
-    
+
     if last == 1:
         raise StopIteration
 
@@ -133,14 +133,14 @@ def permute(seq, pred=cmp):
             # Step 1.
             next1 = next
             next -= 1
-            
+
             if pred(seq[next], seq[next1]) < 0:
                 # Step 2.
                 mid = last - 1
                 while not (pred(seq[next], seq[mid]) < 0):
                     mid -= 1
                 seq[next], seq[mid] = seq[mid], seq[next]
-                
+
                 # Step 3.
                 reverse(seq, next1, last)
 
@@ -180,3 +180,11 @@ def compose(f, g):
     def fg(*a, **kw):
         return f(g(*a, **kw))
     return fg
+
+def trace(f):
+    def inner(*a, **kw):
+        print '> calling with ', a, kw
+        r = f(*a, **kw)
+        print '> returning', r
+        return r
+    return inner
