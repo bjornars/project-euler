@@ -13,6 +13,9 @@ class memoize:
 def factorial(n):
     return reduce(operator.mul, range(2,n+1), 1)
 
+def choose(n, k):
+    return reduce(operator.mul, range(n-k+1, n+1), 1) / factorial(k)
+
 def triangular(p):
     return (p * (p+1)) / 2
 
