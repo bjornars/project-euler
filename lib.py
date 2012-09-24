@@ -183,8 +183,8 @@ def compose(f, g):
 
 def trace(f):
     def inner(*a, **kw):
-        print '> calling with ', a, kw
+        print '> calling', f.func_name, 'with ', a, kw
         r = f(*a, **kw)
-        print '> returning', r
+        print '> returning', f.func_name, r
         return r
     return inner
